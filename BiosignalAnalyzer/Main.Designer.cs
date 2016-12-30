@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ファイルToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.開くOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,11 +50,12 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonLeft = new System.Windows.Forms.Button();
+            this.textBoxIntervalTime = new System.Windows.Forms.TextBox();
+            this.buttonRight = new System.Windows.Forms.Button();
+            this.buttonDetect = new System.Windows.Forms.Button();
+            this.textBoxIntervalSecond = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
@@ -85,8 +86,8 @@
             // 
             // 保存SToolStripMenuItem
             // 
-            this.保存SToolStripMenuItem.Name = "保存SToolStripMenuItem";
             resources.ApplyResources(this.保存SToolStripMenuItem, "保存SToolStripMenuItem");
+            this.保存SToolStripMenuItem.Name = "保存SToolStripMenuItem";
             // 
             // toolStripMenuItem1
             // 
@@ -155,61 +156,69 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             resources.ApplyResources(this.chart1, "chart1");
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             // 
             // label5
             // 
             resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
             // 
-            // button1
+            // buttonLeft
             // 
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.buttonLeft, "buttonLeft");
+            this.buttonLeft.Name = "buttonLeft";
+            this.buttonLeft.UseVisualStyleBackColor = true;
             // 
-            // textBox5
+            // textBoxIntervalTime
             // 
-            resources.ApplyResources(this.textBox5, "textBox5");
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
+            resources.ApplyResources(this.textBoxIntervalTime, "textBoxIntervalTime");
+            this.textBoxIntervalTime.Name = "textBoxIntervalTime";
+            this.textBoxIntervalTime.ReadOnly = true;
             // 
-            // button2
+            // buttonRight
             // 
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.buttonRight, "buttonRight");
+            this.buttonRight.Name = "buttonRight";
+            this.buttonRight.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // buttonDetect
             // 
-            this.comboBox1.FormattingEnabled = true;
-            resources.ApplyResources(this.comboBox1, "comboBox1");
-            this.comboBox1.Name = "comboBox1";
+            resources.ApplyResources(this.buttonDetect, "buttonDetect");
+            this.buttonDetect.Name = "buttonDetect";
+            this.buttonDetect.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // textBoxIntervalSecond
             // 
-            resources.ApplyResources(this.button3, "button3");
-            this.button3.Name = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.textBoxIntervalSecond, "textBoxIntervalSecond");
+            this.textBoxIntervalSecond.Name = "textBoxIntervalSecond";
+            this.textBoxIntervalSecond.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxIntervalSecond_KeyDown);
+            this.textBoxIntervalSecond.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxIntervalSecond_KeyPress);
+            this.textBoxIntervalSecond.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxIntervalSecond_Validating);
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
             // 
             // Main
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBoxIntervalSecond);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.buttonDetect);
+            this.Controls.Add(this.buttonRight);
+            this.Controls.Add(this.textBoxIntervalTime);
+            this.Controls.Add(this.buttonLeft);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.textBox4);
@@ -225,6 +234,8 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
             this.Load += new System.EventHandler(this.Main_Load);
+            this.Shown += new System.EventHandler(this.Main_Shown);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
@@ -253,11 +264,12 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonLeft;
+        private System.Windows.Forms.TextBox textBoxIntervalTime;
+        private System.Windows.Forms.Button buttonRight;
+        private System.Windows.Forms.Button buttonDetect;
+        private System.Windows.Forms.TextBox textBoxIntervalSecond;
+        private System.Windows.Forms.Label label6;
     }
 }
 
