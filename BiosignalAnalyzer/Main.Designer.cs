@@ -40,14 +40,14 @@
             this.終了XToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.バージョン情報ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxParticipantID = new System.Windows.Forms.TextBox();
+            this.textBoxParticipantName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxRecordDate = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBoxDirectoryPath = new System.Windows.Forms.TextBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label5 = new System.Windows.Forms.Label();
             this.buttonLeft = new System.Windows.Forms.Button();
@@ -110,28 +110,28 @@
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
             // 
-            // textBox1
+            // textBoxParticipantID
             // 
-            resources.ApplyResources(this.textBox1, "textBox1");
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
+            resources.ApplyResources(this.textBoxParticipantID, "textBoxParticipantID");
+            this.textBoxParticipantID.Name = "textBoxParticipantID";
+            this.textBoxParticipantID.ReadOnly = true;
             // 
-            // textBox2
+            // textBoxParticipantName
             // 
-            resources.ApplyResources(this.textBox2, "textBox2");
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
+            resources.ApplyResources(this.textBoxParticipantName, "textBoxParticipantName");
+            this.textBoxParticipantName.Name = "textBoxParticipantName";
+            this.textBoxParticipantName.ReadOnly = true;
             // 
             // label2
             // 
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
             // 
-            // textBox3
+            // textBoxRecordDate
             // 
-            resources.ApplyResources(this.textBox3, "textBox3");
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
+            resources.ApplyResources(this.textBoxRecordDate, "textBoxRecordDate");
+            this.textBoxRecordDate.Name = "textBoxRecordDate";
+            this.textBoxRecordDate.ReadOnly = true;
             // 
             // label3
             // 
@@ -148,11 +148,11 @@
             resources.ApplyResources(this.statusStrip, "statusStrip");
             this.statusStrip.Name = "statusStrip";
             // 
-            // textBox4
+            // textBoxDirectoryPath
             // 
-            resources.ApplyResources(this.textBox4, "textBox4");
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
+            resources.ApplyResources(this.textBoxDirectoryPath, "textBoxDirectoryPath");
+            this.textBoxDirectoryPath.Name = "textBoxDirectoryPath";
+            this.textBoxDirectoryPath.ReadOnly = true;
             // 
             // chart1
             // 
@@ -221,14 +221,14 @@
             this.Controls.Add(this.buttonLeft);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.chart1);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBoxDirectoryPath);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBoxRecordDate);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBoxParticipantName);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxParticipantID);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -254,14 +254,14 @@
         private System.Windows.Forms.ToolStripMenuItem 終了XToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem バージョン情報ToolStripMenuItem;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxParticipantID;
+        private System.Windows.Forms.TextBox textBoxParticipantName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxRecordDate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.StatusStrip statusStrip;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxDirectoryPath;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button buttonLeft;

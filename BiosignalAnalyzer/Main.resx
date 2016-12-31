@@ -169,7 +169,7 @@
     <value>0, 0</value>
   </data>
   <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1078, 24</value>
+    <value>762, 24</value>
   </data>
   <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -193,7 +193,7 @@
     <value>True</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>210, 24</value>
+    <value>181, 33</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 12</value>
@@ -216,52 +216,52 @@
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>16</value>
   </data>
-  <data name="textBox1.Enabled" type="System.Boolean, mscorlib">
+  <data name="textBoxParticipantID.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>268, 21</value>
+  <data name="textBoxParticipantID.Location" type="System.Drawing.Point, System.Drawing">
+    <value>239, 30</value>
   </data>
-  <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 19</value>
+  <data name="textBoxParticipantID.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 19</value>
   </data>
-  <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
+  <data name="textBoxParticipantID.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
-    <value>textBox1</value>
+  <data name="&gt;&gt;textBoxParticipantID.Name" xml:space="preserve">
+    <value>textBoxParticipantID</value>
   </data>
-  <data name="&gt;&gt;textBox1.Type" xml:space="preserve">
+  <data name="&gt;&gt;textBoxParticipantID.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;textBoxParticipantID.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;textBoxParticipantID.ZOrder" xml:space="preserve">
     <value>15</value>
   </data>
-  <data name="textBox2.Enabled" type="System.Boolean, mscorlib">
+  <data name="textBoxParticipantName.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="textBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>71, 21</value>
+  <data name="textBoxParticipantName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>71, 30</value>
   </data>
-  <data name="textBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 19</value>
+  <data name="textBoxParticipantName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 19</value>
   </data>
-  <data name="textBox2.TabIndex" type="System.Int32, mscorlib">
+  <data name="textBoxParticipantName.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;textBox2.Name" xml:space="preserve">
-    <value>textBox2</value>
+  <data name="&gt;&gt;textBoxParticipantName.Name" xml:space="preserve">
+    <value>textBoxParticipantName</value>
   </data>
-  <data name="&gt;&gt;textBox2.Type" xml:space="preserve">
+  <data name="&gt;&gt;textBoxParticipantName.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;textBoxParticipantName.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;textBox2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;textBoxParticipantName.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
@@ -271,7 +271,7 @@
     <value>NoControl</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 24</value>
+    <value>12, 33</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 12</value>
@@ -294,28 +294,28 @@
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
-  <data name="textBox3.Enabled" type="System.Boolean, mscorlib">
+  <data name="textBoxRecordDate.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="textBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>466, 21</value>
+  <data name="textBoxRecordDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>400, 30</value>
   </data>
-  <data name="textBox3.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="textBoxRecordDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>133, 19</value>
   </data>
-  <data name="textBox3.TabIndex" type="System.Int32, mscorlib">
+  <data name="textBoxRecordDate.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;textBox3.Name" xml:space="preserve">
-    <value>textBox3</value>
+  <data name="&gt;&gt;textBoxRecordDate.Name" xml:space="preserve">
+    <value>textBoxRecordDate</value>
   </data>
-  <data name="&gt;&gt;textBox3.Type" xml:space="preserve">
+  <data name="&gt;&gt;textBoxRecordDate.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox3.Parent" xml:space="preserve">
+  <data name="&gt;&gt;textBoxRecordDate.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;textBox3.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;textBoxRecordDate.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
@@ -325,7 +325,7 @@
     <value>NoControl</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>407, 24</value>
+    <value>341, 33</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 12</value>
@@ -355,16 +355,16 @@
     <value>NoControl</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>605, 24</value>
+    <value>539, 33</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 12</value>
+    <value>50, 12</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
-    <value>ディレクトリパス</value>
+    <value>フォルダー</value>
   </data>
   <data name="&gt;&gt;label4.Name" xml:space="preserve">
     <value>label4</value>
@@ -385,7 +385,7 @@
     <value>0, 597</value>
   </data>
   <data name="statusStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1078, 22</value>
+    <value>762, 22</value>
   </data>
   <data name="statusStrip.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -405,35 +405,35 @@
   <data name="&gt;&gt;statusStrip.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="textBox4.Enabled" type="System.Boolean, mscorlib">
+  <data name="textBoxDirectoryPath.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="textBox4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>684, 21</value>
+  <data name="textBoxDirectoryPath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>595, 30</value>
   </data>
-  <data name="textBox4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 19</value>
+  <data name="textBoxDirectoryPath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 19</value>
   </data>
-  <data name="textBox4.TabIndex" type="System.Int32, mscorlib">
+  <data name="textBoxDirectoryPath.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="&gt;&gt;textBox4.Name" xml:space="preserve">
-    <value>textBox4</value>
+  <data name="&gt;&gt;textBoxDirectoryPath.Name" xml:space="preserve">
+    <value>textBoxDirectoryPath</value>
   </data>
-  <data name="&gt;&gt;textBox4.Type" xml:space="preserve">
+  <data name="&gt;&gt;textBoxDirectoryPath.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox4.Parent" xml:space="preserve">
+  <data name="&gt;&gt;textBoxDirectoryPath.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;textBox4.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;textBoxDirectoryPath.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
   <data name="chart1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 73</value>
+    <value>12, 82</value>
   </data>
   <data name="chart1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1054, 521</value>
+    <value>739, 512</value>
   </data>
   <data name="chart1.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -460,7 +460,7 @@
     <value>NoControl</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 51</value>
+    <value>12, 60</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 12</value>
@@ -483,8 +483,11 @@
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
+  <data name="buttonLeft.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="buttonLeft.Location" type="System.Drawing.Point, System.Drawing">
-    <value>71, 45</value>
+    <value>71, 54</value>
   </data>
   <data name="buttonLeft.Size" type="System.Drawing.Size, System.Drawing">
     <value>30, 23</value>
@@ -514,7 +517,7 @@
     <value>MS UI Gothic, 12pt</value>
   </data>
   <data name="textBoxIntervalTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>107, 45</value>
+    <value>107, 54</value>
   </data>
   <data name="textBoxIntervalTime.Size" type="System.Drawing.Size, System.Drawing">
     <value>126, 23</value>
@@ -537,11 +540,14 @@
   <data name="&gt;&gt;textBoxIntervalTime.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="buttonRight.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="buttonRight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonRight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>239, 45</value>
+    <value>239, 54</value>
   </data>
   <data name="buttonRight.Size" type="System.Drawing.Size, System.Drawing">
     <value>30, 23</value>
@@ -564,8 +570,11 @@
   <data name="&gt;&gt;buttonRight.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="buttonDetect.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="buttonDetect.Location" type="System.Drawing.Point, System.Drawing">
-    <value>341, 45</value>
+    <value>341, 54</value>
   </data>
   <data name="buttonDetect.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -588,8 +597,11 @@
   <data name="&gt;&gt;buttonDetect.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="textBoxIntervalSecond.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="textBoxIntervalSecond.Location" type="System.Drawing.Point, System.Drawing">
-    <value>275, 47</value>
+    <value>275, 56</value>
   </data>
   <data name="textBoxIntervalSecond.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 19</value>
@@ -622,7 +634,7 @@
     <value>NoControl</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>318, 50</value>
+    <value>318, 59</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>17, 12</value>
@@ -652,7 +664,7 @@
     <value>6, 12</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1078, 619</value>
+    <value>762, 619</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Biosignal Analyzer from CDM Analyzer</value>

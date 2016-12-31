@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
@@ -17,6 +18,9 @@ namespace BiosignalAnalyzer
 
         /// <summary>表示区間の秒数．</summary>
         private int __intervalSecond;
+
+        /// <summary>前回のディレクトリ選択で選択されたディレクトリ(確定された選択は DataInfo のものです)．</summary>
+        private string selectedDirectory;
 
         #endregion
 
@@ -57,36 +61,54 @@ namespace BiosignalAnalyzer
         /// </summary>
         private void Open()
         {
-            if (!SelectTargetDirectory())
+            while (true)
             {
-                return;
+                if (!SelectTargetDirectory())
+                {
+                    return;
+                }
+                using (var dialog = new ProgressForm())
+                {
+                    dialog.AsyncTask = LoadFilesAsync;
+                    dialog.StartPosition = FormStartPosition.CenterScreen;
+                    dialog.ShowDialog();
+                    if (dialog.Finished)
+                    {
+                        UpdateTextBox();
+                        break;
+                    }
+                }
             }
-            using (var dialog = new ProgressForm())
-            {
-                dialog.AsyncTask = LoadFilesAsync;
-                dialog.StartPosition = FormStartPosition.CenterScreen;
-                dialog.ShowDialog();
-                MessageBox.Show(dialog.Finished.ToString());
-            }
+        }
+
+        /// <summary>
+        /// テキストボックスの内容を更新します．
+        /// </summary>
+        private void UpdateTextBox()
+        {
+            textBoxParticipantName.Text = DataInfo.ParticipantName;
+            textBoxParticipantID.Text = DataInfo.ParticipantID;
+            textBoxRecordDate.Text = DataInfo.RecordDate;
+            var s = DataInfo.DirectoryPath.Split('\\');
+            textBoxDirectoryPath.Text = s[s.Length - 1];
         }
 
         /// <summary>
         /// ディレクトリを選択します．
         /// </summary>
-        /// <returns>正しいディレクトリを選択したか．</returns>
+        /// <returns>正しいディレクトリを選択したか．false ならキャンセルされた．</returns>
         private bool SelectTargetDirectory()
         {
-            var selectedPath = Environment.CurrentDirectory;
             while (true)
             {
                 var dialog = new FolderBrowserDialog();
-                dialog.Description = "生理指標データが保存されているフォルダを選択してください．";
-                dialog.SelectedPath = selectedPath;
+                dialog.Description = "生理指標データが保存されているフォルダーを選択してください．";
+                dialog.SelectedPath = selectedDirectory;
                 dialog.ShowNewFolderButton = false;
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    selectedPath = dialog.SelectedPath;
-                    if (!IdentifyBiosignalFiles(selectedPath))
+                    selectedDirectory = dialog.SelectedPath;
+                    if (!IdentifyBiosignalFiles(selectedDirectory))
                     {
                         // 必要なファイルが揃っていなかったらやり直し
                         continue;
@@ -104,26 +126,131 @@ namespace BiosignalAnalyzer
         /// <param name="token">処理キャンセルを監視するトークン．</param>
         private async void LoadFilesAsync(ProgressForm form, CancellationToken token)
         {
-            // テスト用
-            for (int i = 0; i < 100; i++)
+            // 総ファイルサイズの取得
+            long totalByteSize = 0;
+            var fileByteSize = new Dictionary<Enums.FileTypes, long>();
+            foreach (Enums.FileTypes type in Enum.GetValues(typeof(Enums.FileTypes)))
             {
-                if (token.IsCancellationRequested)
+                if (type == Enums.FileTypes.Undefined)
                 {
-                    return;
+                    continue;
                 }
-                await System.Threading.Tasks.Task.Delay(100);
-                Invoke(
-                    (MethodInvoker)(() =>
+                var path = String.Join("\\", new[] { DataInfo.DirectoryPath, DataInfo.FileNames[type] });
+                fileByteSize[type] = new FileInfo(path).Length;
+                totalByteSize += fileByteSize[type];
+            }
+
+            // 順にファイルを読み込む
+            long readByteSize = 0;
+            long readFileByteSize = 0;
+            foreach (Enums.FileTypes type in Enum.GetValues(typeof(Enums.FileTypes)))
+            {
+                if (type == Enums.FileTypes.Undefined)
+                {
+                    continue;
+                }
+                var path = String.Join("\\", new[] { DataInfo.DirectoryPath, DataInfo.FileNames[type] });
+                using (var fs = new FileStream(path, FileMode.Open))
+                {
+                    using (var sr = new StreamReader(fs, Encoding.GetEncoding("Shift_JIS")))
                     {
-                        form.Progress = i + 1;
-                        form.Message = "ほえ";
-                    }));
+                        var s = "start";
+                        while (s != null)
+                        {
+                            if (token.IsCancellationRequested)
+                            {
+                                // 中断命令が出された
+                                return;
+                            }
+                            try
+                            {
+                                s = await sr.ReadLineAsync();
+                            }
+                            catch (OutOfMemoryException)
+                            {
+                                MessageBox.Show("メモリが不足しています．", "読み込みエラー",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            if (s != null)
+                            {
+                                LoadOneLineString(s, type);
+                                readByteSize += Encoding.GetEncoding("Shift_JIS").GetByteCount(s) + 2;
+                                if (readByteSize > readFileByteSize + fileByteSize[type])
+                                {
+                                    readByteSize = readFileByteSize + fileByteSize[type];
+                                }
+                            }
+                            Invoke(
+                                (MethodInvoker)(() =>
+                                {
+                                    form.Progress = (int)(100f * readByteSize / totalByteSize);
+                                    form.Message = type.ToString() + "ファイルを読み込んでいます...";
+                                }));
+                        }
+                        readFileByteSize += fileByteSize[type];
+                        readByteSize = readFileByteSize;
+                    }
+                }
             }
             Invoke(
                 (MethodInvoker)(() =>
                 {
                     form.Finished = true;
                 }));
+        }
+
+        /// <summary>
+        /// 生理指標データの1行分の文字列から DataInfo に情報を読み込みます．
+        /// </summary>
+        /// <param name="str">1行分の生理指標データ文字列．</param>
+        /// <param name="type">現在読み込んでいるファイルの種類．</param>
+        private void LoadOneLineString(string str, Enums.FileTypes type)
+        {
+            var s = str.Split(',');
+            if (type == Enums.FileTypes.CDM)
+            {
+                if (Regex.IsMatch(s[0], @"収録日時"))
+                {
+                    DataInfo.RecordDate = s[1] + s[2];
+                }
+                else if (Regex.IsMatch(s[0], @"被験者ID"))
+                {
+                    DataInfo.ParticipantID = s[1];
+                }
+                else if (Regex.IsMatch(s[0], @"被験者名"))
+                {
+                    DataInfo.ParticipantName = s[1];
+                }
+                else if (Regex.IsMatch(s[0], @"LF"))
+                {
+                    var lf = Regex.Matches(s[0], @"([.\d]+)～([.\d]+)");
+                    DataInfo.LFFrequencyMin = float.Parse(lf[0].Groups[1].Value);
+                    DataInfo.LFFrequencyMax = float.Parse(lf[0].Groups[2].Value);
+                    var hf = Regex.Matches(s[1], @"([.\d]+)～([.\d]+)");
+                    DataInfo.HFFrequencyMin = float.Parse(hf[0].Groups[1].Value);
+                    DataInfo.HFFrequencyMax = float.Parse(hf[0].Groups[2].Value);
+                }
+            }
+            if (Regex.IsMatch(s[0], @"^[:\d]+$"))
+            {
+                switch (type)
+                {
+                    case Enums.FileTypes.CDM:
+                        DataInfo.LFData.Add(new KeyValuePair<int, float>(DataInfo.TimeToInt(s[1]), float.Parse(s[4])));
+                        DataInfo.HFData.Add(new KeyValuePair<int, float>(DataInfo.TimeToInt(s[1]), float.Parse(s[5])));
+                        DataInfo.LFHFData.Add(new KeyValuePair<int, float>(DataInfo.TimeToInt(s[1]), float.Parse(s[6])));
+                        break;
+                    case Enums.FileTypes.RR:
+                        DataInfo.RRIData.Add(new KeyValuePair<int, float>(DataInfo.TimeToInt(s[1]), float.Parse(s[3])));
+                        break;
+                    case Enums.FileTypes.ECG:
+                        DataInfo.ECGData.Add(new KeyValuePair<int, float>(DataInfo.TimeToInt(s[0]), float.Parse(s[1])));
+                        break;
+                    case Enums.FileTypes.SCR:
+                        DataInfo.SCRData.Add(new KeyValuePair<int, float>(DataInfo.TimeToInt(s[0]), float.Parse(s[1])));
+                        break;
+                }
+            }
         }
 
         /// <summary>
@@ -211,7 +338,9 @@ namespace BiosignalAnalyzer
         private void Main_Load(object sender, System.EventArgs e)
         {
             ActiveControl = buttonDetect;
+            selectedDirectory = Environment.CurrentDirectory;
             IntervalSecond = 20;
+            UpdateTextBox();
         }
 
         private void Main_MouseDown(object sender, MouseEventArgs e)
